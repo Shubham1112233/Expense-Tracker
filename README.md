@@ -1,4 +1,4 @@
-Personal Finance Tracker - Backend
+FinanceAI - This is a repository containing a backend code, A Finance AI is full stack MERN Application to fulfill your financial needs smartly with AI and top notch UI features.
 
 Setup
 
@@ -6,6 +6,7 @@ Setup
    - `PORT` (default 4000)
    - `MONGODB_URI`
    - `JWT_SECRET`
+   - `Chatbot_API_Key`
 2. Install dependencies:
    - `npm install`
 3. Run dev server:
@@ -20,7 +21,5 @@ API
   - GET `/api/transactions?type=&category=&q=&startDate=&endDate=&page=&limit=`
   - POST `/api/transactions` { type: 'income'|'expense', amount, category, description?, date }
   - DELETE `/api/transactions/:id`
-
-Health check: `GET /health`
 
 
