@@ -6,7 +6,9 @@ import rateLimit from 'express-rate-limit';
 import { connectToDatabase } from './config/db.js';
 import authRoutes from './routes/auth.routes.js';
 import transactionRoutes from './routes/transaction.routes.js';
+import aiPlaygroundRoutes from './routes/aiplayground.routes.js';
 import { notFoundHandler, errorHandler } from './middleware/error.js';
+import userDataRouter from './routes/userData.routes.js';
 
 const app = express();
 
@@ -30,6 +32,8 @@ app.use('/api', apiLimiter);
 app.get('/health', (_req, res) => res.json({ ok: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
+app.use('/api/ai-playground', aiPlaygroundRoutes);
+app.use('/api/userData', userDataRouter);
 
 // Not found and error handlers
 app.use(notFoundHandler);

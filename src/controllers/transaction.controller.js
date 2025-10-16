@@ -45,6 +45,31 @@ export async function createTransaction(req, res, next) {
   }
 }
 
+export async function updateTransaction(req, res, next) {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    
+    const { id } = req.params;
+    const { type, amount, category, description, date } = req.body;
+    const userId = req.user.id;
+    
+    const updatedTransaction = await Transaction.findOneAndUpdate(
+      { _id: id, userId: userId },
+      { type, amount, category, description, date: new Date(date) },
+      { new: true }
+    );
+    
+    if (!updatedTransaction) {
+      return res.status(404).json({ message: 'Transaction not found' });
+    }
+    
+    res.json({ data: updatedTransaction });
+  } catch (err) {
+    next(err);
+  }
+}
+
 export async function deleteTransaction(req, res, next) {
   try {
     const { id } = req.params;
