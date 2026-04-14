@@ -1,3 +1,5 @@
+THIS PR IS CONNECTED TO FRONTEND - https://github.com/Shubham1112233/Expense-Tracker-UI
+
 FinanceAI - This is a repository containing a backend code, A Finance AI is full stack MERN Application to fulfill your financial needs smartly with AI and top notch UI features.
 
 API
@@ -10,4 +12,7 @@ API
   - POST `/api/transactions` { type: 'income'|'expense', amount, category, description?, date }
   - DELETE `/api/transactions/:id`
 
+DEPLOYMENT
+
+RENDER AI
 
