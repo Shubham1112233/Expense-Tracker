@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import { body, param } from 'express-validator';
 import { requireAuth } from '../middleware/auth.js';
-import { listTransactions, createTransaction, updateTransaction, deleteTransaction } from '../controllers/transaction.controller.js';
+import { listTransactions, createTransaction, updateTransaction, deleteTransaction, searchSemanticTransactions } from '../controllers/transaction.controller.js';
 
 const router = Router();
 
 router.use(requireAuth);
 
+router.get('/search', searchSemanticTransactions);
 router.get('/', listTransactions);
 
 router.post(
